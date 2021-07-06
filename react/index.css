@@ -3,11 +3,11 @@
 .pkpmodal {
   background: #fff;
   position: fixed;
-  z-index: 100;
+  z-index: 999;
 }
 
 .modalBackdrop {
-  background: #fff;
+  background: rgba(0, 0, 0, 0.5);
   opacity: 0.8;
   position: fixed;
   top: 0;
@@ -16,7 +16,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 99;
+  z-index: 998;
 }
 
 .modalfullPage {
@@ -79,13 +79,14 @@
 
 @media (min-width: 1024px) {
   .pkpmodal {
-    border: 1px solid #ccc;
+    border-radius: 12px;
     top: 50%;
     left: 50%;
     height: 560px;
     width: 900px;
     margin-top: -280px;
     margin-left: -450px;
+    overflow: hidden;
   }
 
   .modalfullPage .searchAloneTitle {

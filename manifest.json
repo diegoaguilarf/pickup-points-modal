@@ -1,7 +1,7 @@
 {
   "name": "pickup-points-modal",
-  "vendor": "vtex",
-  "version": "3.4.1",
+  "vendor": "exito",
+  "version": "1.0.1",
   "title": "Pickup Points Modal React component",
   "description": "Pickup Points Modal React component",
   "defaultLocale": "en",
@@ -13,12 +13,17 @@
   "settingsSchema": {},
   "dependencies": {
     "vtex.country-codes": "1.x",
-    "vtex.shipping-estimate-translator": "1.x",
-    "vtex.address-form": "3.x"
+    "vtex.shipping-estimate-translator": "2.x",
+    "vtex.address-form": "4.x",
+    "vtex.add-to-cart-button": "0.x",
+    "vtex.checkout-graphql": "0.x",
+    "vtex.order-manager": "0.x",
+    "vtex.checkout-resources": "0.x"
   },
   "builders": {
-    "react": "2.x",
-    "messages": "1.x"
+    "react": "3.x",
+    "messages": "1.x",
+    "store": "0.x"
   },
   "scripts": {
     "postreleasy": "vtex publish --public"

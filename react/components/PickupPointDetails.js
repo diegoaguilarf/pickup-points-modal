@@ -12,10 +12,10 @@ import {
 import PickupPointInfo from './PickupPointInfo'
 import ProductItems from './ProductItems'
 import PickupPointHour from './PickupPointHour'
-import Button from './Button'
 import ArrowPrevious from '../assets/components/ArrowPrevious'
 import ArrowNext from '../assets/components/ArrowNext'
 import BackChevron from '../assets/components/BackChevron'
+import BuyNow from './buyNow'
 import styles from './PickupPointDetails.css'
 import { LIST, ARROW_LEFT, ARROW_RIGHT } from '../constants'
 import { injectState } from '../modalStateContext'
@@ -163,9 +163,7 @@ class PickupPointDetails extends Component {
       <div className={`${styles.modalDetails} pkpmodal-details`}>
         <div className={`${styles.modalDetailsTop} pkpmodal-details-top`}>
           <button
-            className={`${
-              styles.modalDetailsBackLnk
-            } pkpmodal-details-back-lnk btn btn-link`}
+            className={`${styles.modalDetailsBackLnk} pkpmodal-details-back-lnk btn btn-link`}
             onClick={this.handleBackButtonClick}
             type="button">
             <BackChevron />
@@ -302,15 +300,15 @@ class PickupPointDetails extends Component {
         {shouldShowSelectPickupButton && (
           <div
             className={`${styles.modalDetailsBottom} pkpmodal-details-bottom`}>
-            <Button
+            
+            <BuyNow 
               id={confirmButtonId}
-              kind="primary"
-              large
+              selectedPickupPoint={selectedPickupPoint}
               moreClassName={`${
                 styles.modalDetailConfirmBtn
               } pkpmodal-details-confirm-btn`}
               onClick={this.handleConfirmButtonClick}
-              title={translate(intl, 'confirmPoint')}
+              title={translate(intl, 'buyNow')}
             />
           </div>
         )}

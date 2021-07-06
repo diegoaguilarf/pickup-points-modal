@@ -85,6 +85,11 @@
   margin-top: 12px;
 }
 
+.pickupPointPrice {
+  color: #45b47c;
+  font-weight: bold;
+}
+
 .pickupPointPrice,
 .pickupPointSla {
   display: inline-block;

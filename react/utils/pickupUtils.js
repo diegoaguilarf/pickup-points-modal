@@ -9,12 +9,12 @@ function checkIfIsSameSeller(sellerId, item) {
 }
 
 function getLogisticsInfoItem(logisticsInfo, index) {
-  return logisticsInfo.find(li => li.itemIndex === index)
+  return logisticsInfo.find(li => li.itemIndex === index.toString())
 }
 
 function hasPickupPoint(logisticsInfo, pickupPointId) {
   return (
-    logisticsInfo && logisticsInfo.slas.some(sla => sla.id === pickupPointId)
+    logisticsInfo && logisticsInfo.slas.some(sla => sla.id.includes(pickupPointId))
   )
 }
 
