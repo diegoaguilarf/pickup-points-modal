@@ -62,6 +62,27 @@ class PickupPointDetails extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (this.props.selectedPickupPoint) {
+      const selectedPickupPoint = this.props.selectedPickupPoint
+      console.log("logisticsInfo", this.props.logisticsInfo)
+      console.log({
+        addressId: selectedPickupPoint.id,
+        addressType: 'search',
+        postalCode: selectedPickupPoint.pickupStoreInfo.address.postalCode,
+        geoCoordinates: [
+          parseFloat(selectedPickupPoint.pickupStoreInfo.address.geoCoordinates[0]),
+          parseFloat(selectedPickupPoint.pickupStoreInfo.address.geoCoordinates[1])
+        ],
+        number: "",
+        street: selectedPickupPoint.pickupStoreInfo.address.street,
+        complement: "",
+        receiverName: undefined,
+        neighborhood: "",
+        city: selectedPickupPoint.pickupStoreInfo.address.city,
+        state: selectedPickupPoint.pickupStoreInfo.address.state,
+        country: 'COL'
+      })
+      }
     const { props } = this
 
     if (prevProps.selectedPickupPoint.id !== props.selectedPickupPoint.id) {
@@ -110,7 +131,7 @@ class PickupPointDetails extends Component {
       this.props.logisticsInfo,
       this.props.selectedPickupPoint
     )
-    this.props.handleClosePickupPointsModal()
+    window.location.href = `/checkout/#/shipping`;
   }
 
   render() {

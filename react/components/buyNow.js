@@ -5,7 +5,7 @@ import UpdateSelectedAddressMutation from 'vtex.checkout-resources/MutationUpdat
 import Button from './Button'
 
 const buyNow = (props) => {
-    const { confirmButtonId, moreClassName, title, selectedPickupPoint } = props;
+    const { confirmButtonId, moreClassName, title, selectedPickupPoint, onClick } = props;
 
     const { orderForm, setOrderForm } = useOrderForm();
     const [updateSelectedAddress] = useMutation(UpdateSelectedAddressMutation);
@@ -38,8 +38,9 @@ const buyNow = (props) => {
         return {}
       };
 
-    const handleConfirmButtonClick = () => {
-        setPayloadInOrderForm(selectedPickupPoint)
+    const handleConfirmButtonClick = async () => {
+        await setPayloadInOrderForm(selectedPickupPoint);
+        onClick();
         window.location.href = `/checkout/#/shipping`;
     }
 

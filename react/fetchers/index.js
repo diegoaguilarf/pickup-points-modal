@@ -63,7 +63,7 @@ export function updateShippingData(
 
   const pickupAddressWithAddressId = newAddress({
     ...pickupAddress,
-    addressId: undefined,
+    addressId: pickupPoint.id,
     addressType: SEARCH,
   })
   const shippingData = {
@@ -73,14 +73,15 @@ export function updateShippingData(
       pickupAddressWithAddressId,
     ],
     logisticsInfo: logisticsInfo.map(li => {
-      const hasSla = li.slas.some(sla => sla.id === pickupPoint.id)
+      const slaSelected = li.slas.find(sla => sla.id.includes(pickupPoint.id))
       const hasDeliverySla = li.slas.some(sla => isDelivery(sla))
 
       return {
-        itemIndex: li.itemIndex,
-        addressId: hasSla ? pickupAddressWithAddressId.addressId : li.addressId,
-        selectedSla: hasSla ? pickupPoint.id : li.selectedSla,
-        selectedDeliveryChannel: hasSla
+        slas: li.slas,
+        itemIndex: parseInt(li.itemIndex),
+        addressId: slaSelected ? pickupAddressWithAddressId.addressId : li.addressId,
+        selectedSla: slaSelected ? slaSelected.id : li.selectedSla,
+        selectedDeliveryChannel: "pickup-in-point"
           ? PICKUP_IN_STORE
           : hasDeliverySla
             ? li.selectedDeliveryChannel
@@ -88,8 +89,5 @@ export function updateShippingData(
       }
     }),
   }
-  return (
-    window.vtexjs &&
-    window.vtexjs.checkout.sendAttachment('shippingData', shippingData)
-  )
+  return localStorage.setItem("current_pickup_point", JSON.stringify(shippingData))
 }

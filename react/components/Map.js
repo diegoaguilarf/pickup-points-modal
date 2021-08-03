@@ -286,12 +286,16 @@ class Map extends Component {
     this.props.setMapCenterLatLng(newCenter)
   }
 
-  createMap = mapElement => {
+  createMap = (mapElement) => {
     const { googleMaps, setActiveSidebarState } = this.props
 
     this._mapElement = mapElement
 
+    const firstPickupPoint = this.props.pickupOptions[0];
+    const firstPickupPointGeocoordinates = firstPickupPoint.pickupStoreInfo.address.geoCoordinates;
+
     const mapOptions = {
+      center: { lat: firstPickupPointGeocoordinates[1], lng: firstPickupPointGeocoordinates[0] },
       zoom: 14,
       disableDefaultUI: true,
       mapTypeControl: false,
