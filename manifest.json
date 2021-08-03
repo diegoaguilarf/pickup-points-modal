@@ -1,7 +1,7 @@
 {
   "name": "pickup-points-modal",
   "vendor": "exito",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "title": "Pickup Points Modal React component",
   "description": "Pickup Points Modal React component",
   "defaultLocale": "en",
