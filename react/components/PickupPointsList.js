@@ -152,7 +152,9 @@ class PickupPointsList extends PureComponent {
               useWindow={false}
               threshold={1}>
               {currentPickupPoints.map(pickupPoint => (
-                <div
+                !bestPickupOptions.some(
+                  localPickupPoint => localPickupPoint.id === pickupPoint.id
+                ) && <div
                   className={`${
                     styles.pointsItem
                   } pkpmodal-points-item pickupPoint-${pickupPoint.id}`}

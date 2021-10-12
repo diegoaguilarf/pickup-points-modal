@@ -5,7 +5,7 @@ import { formatCurrency, formatNumber } from '../utils/Currency'
 import { formatDistance } from '../utils/Distance'
 import { translate } from '../utils/i18nUtils'
 import PinIcon from '../assets/components/PinIcon'
-import TranslateEstimate from 'vtex.shipping-estimate-translator/TranslateEstimate'
+// import TranslateEstimate from 'vtex.shipping-estimate-translator/TranslateEstimate'
 import { AddressSummary } from '@vtex/address-form'
 import { getUnavailableItemsAmount } from '../utils/pickupUtils'
 import styles from './PickupPoint.css'
@@ -208,10 +208,6 @@ class PickupPointInfo extends Component {
             {shouldShowEstimate && (
               <span
                 className={`${styles.pickupPointSla} pkpmodal-pickup-point-sla`}>
-                <TranslateEstimate
-                  shippingEstimate={pickupPoint && pickupPoint.shippingEstimate}
-                  isPickup
-                />
               </span>
             )}
           </div>
