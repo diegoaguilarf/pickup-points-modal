@@ -59,5 +59,6 @@
   "pickupPointsModal.searchArea": "Search this area",
   "pickupPointsModal.showPickupPointsList": "View all Pick Up In Store sites",
   "pickupPointsModal.bestResults": "Best results",
-  "pickupPointsModal.resultsOrderedByDistance": "Results sorted by distance"
+  "pickupPointsModal.resultsOrderedByDistance": "Results sorted by distance",
+  "pickupPointsModal.shippingEstimatePickup": "{timeAmount, plural, =0 {Listo el mismo día} one {Listo en hasta # día hábil} other {Listo en hasta # días hábiles}}"
 }
